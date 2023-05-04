@@ -72,12 +72,7 @@ export function SellerEstateForm() {
     // Pass the rawValue to the parent component
   }
   return (
-    <form
-      onSubmit={handleSubmit}
-      action="/buyers"
-      method="GET"
-      className={styles.form}
-    >
+    <form action="/buyers" method="GET" className={styles.form}>
       <input type="hidden" name="price" value={rawPrice}></input>
       <input type="hidden" name="minSize" value={rawSize}></input>
       <label>
