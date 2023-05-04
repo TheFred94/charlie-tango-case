@@ -122,7 +122,7 @@ export function SellerEstateForm() {
       <label>
         <span className={styles.label}>Property type</span>
         <select className="inputs" id="selectInput" name="propertyType">
-          <option onChange={handleSelectChange} value="" disabled selected>
+          <option onChange={handleSelectChange} value="" selected>
             Please choose...
           </option>
           <EstOption />
