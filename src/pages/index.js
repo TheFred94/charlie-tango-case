@@ -129,7 +129,7 @@ export function SellerEstateForm() {
         </select>
       </label>
       <button className={styles.button} type="submit">
-        Submit
+        Proceed
       </button>
     </form>
   );
