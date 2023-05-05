@@ -46,7 +46,8 @@ export function ContactForm(query) {
   const dispatch = useContext(DistpatchContext);
   const router = useRouter();
 
-  function handleSubmit(e) {
+  // The handleSubmit is now an async function to hande the await keyword in the fetch.
+  async function handleSubmit(e) {
     e.preventDefault();
     // Stores the form data in a variable
     const formData = {
@@ -69,16 +70,23 @@ export function ContactForm(query) {
     };
 
     console.log(payload);
-    fetch("/api/addData", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-    router.push("/thankYou");
+
+    // Now, the handleSubmit function is an async function and we can use the await keyword to wait for the result of the fetch request before redirecting the user to the next page.
+    try {
+      const res = await fetch("/api/addData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      console.log(data);
+      router.push("/thankYou");
+    } catch (error) {
+      console.log(error);
+      // Handle error here
+    }
   }
 
   return (
