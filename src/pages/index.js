@@ -1,22 +1,12 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
-import { estateTypes } from "@/data/estateTypes";
+
 import React from "react";
 import { useState } from "react";
 import Image from "next/image";
 import housePic from "../assets/hus.jpeg";
 
-import {
-  Button,
-  Cascader,
-  Checkbox,
-  DatePicker,
-  Form,
-  Input,
-  InputNumber,
-  Radio,
-  Select,
-} from "antd";
+import { Input, InputNumber } from "antd";
 import EstOption from "@/components/EstateOpt";
 
 export default function Home() {
@@ -48,20 +38,6 @@ export default function Home() {
 export function SellerEstateForm() {
   const [rawPrice, setRawPrice] = useState(750000);
   const [rawSize, setRawSize] = useState(120);
-  const [propertyType, setPropertyType] = useState("");
-
-  // function handleSubmit(event) {
-  //   if (propertyType === "") {
-  //     event.preventDefault();
-  //     alert("Please select a valid option");
-  //   } else {
-  //     // Submit the form
-  //   }
-  // }
-
-  // function handleSelectChange(event) {
-  //   setPropertyType(event.target.value);
-  // }
 
   function onChangeSize(value) {
     setRawSize(value);

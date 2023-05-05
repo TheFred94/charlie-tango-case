@@ -1,9 +1,6 @@
 import "@/styles/globals.css";
 import { Header } from "@/components/Header/Header";
 import { BuyerListProvider } from "@/contexts/buyerContext";
-/* import { useContext } from "react";
-import { DashboardContext } from "./dashboard";
- */
 import { createContext, useState } from "react";
 
 export const DashboardContext = createContext();

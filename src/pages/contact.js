@@ -1,3 +1,8 @@
+// The Buyers function is the main component of the application. It imports several dependencies, including Head from next/head, useContext from react, Checkbox, Input, and InputNumber from antd, and Image from next/image.
+// It also imports two contexts, BuyerContext and DistpatchContext, from @/contexts/buyerContext, which are used to manage the state of the form data and dispatch updates to it. The function renders a Head element, a wrapper with a h1 element and two divs, and a BuyersList component.
+// It also renders an image of a real estate agent. The form data is handled by the ContactForm function, which is called by Buyers and renders a form with several Input and InputNumber fields and a Checkbox.
+// The handleSubmit function handles the form submission by storing the form data in a variable, dispatching an action to update the form data, merging the form data with the existing query data, and submitting the data to a backend API using a fetch request. Finally, the function redirects the user to a "thank you" page.
+
 import Head from "next/head";
 import { BuyerContext, DistpatchContext } from "@/contexts/buyerContext";
 import { useContext } from "react";
@@ -7,7 +12,6 @@ import React from "react";
 import { Checkbox, Input, InputNumber } from "antd";
 import Image from "next/image";
 import contactImage from "../assets/RE_agent.jpg";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function Buyers() {
@@ -79,12 +83,7 @@ export function ContactForm(query) {
 
   return (
     <div className="contactForm">
-      <form
-        /* action="/buyers" */
-        method="GET"
-        className={styles.form}
-        onSubmit={handleSubmit}
-      >
+      <form method="GET" className={styles.form} onSubmit={handleSubmit}>
         <label>
           <span className={styles.label}>Name</span>
           <Input className="inputs" name="name" required />
